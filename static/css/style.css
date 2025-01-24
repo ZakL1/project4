@@ -2,31 +2,33 @@ body {
     background-color: white;
 }
 
-.brand {
-    font-family: Lato, sans-serif;
-    font-size: 1.4rem;
+.name {
+    font-family: Limelight, sans-serif;
+    font-size: 2.2rem;
     font-weight: 700;
-    color: #4A4A4F;
+    color: #ff6600;
 }
 
-.red-o {
-    color: #E84610;
+.navbar {
+    background-color: black;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
-.thin {
-    font-weight: 300;
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+    color: white;
 }
 
 .light-bg {
-    background-color: #fff;
+    background-color: black;
 }
 
 .dark-bg {
-    background-color: #445261;
+    background-color: black;
 }
 
 .main-bg {
-    background-color: #F9FAFC;
+    background-color: #161616;
 }
 
 .card {
@@ -64,12 +66,6 @@ body {
     display: inline-block;
     height: 33vh;
     width: 100%;
-}
-
-.masthead-text {
-    background-color: #445261;
-    color: white;
-    position: relative;
 }
 
 .masthead-image {
@@ -130,7 +126,7 @@ body {
 
 .link:hover,
 .link:active {
-    color: #445261;
+    color: white;
     text-decoration: underline;
 }
 
@@ -158,4 +154,10 @@ body {
 
 .approval {
     color: rgb(222, 146, 168);
+}
+
+.navbar-light .navbar-toggler {
+    color: white;
+    border-color: white;
+    background-color: white;
 }
