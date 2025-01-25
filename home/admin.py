@@ -3,14 +3,14 @@ from .models import Post, Review
 from django_summernote.admin import SummernoteModelAdmin
 
 
-@admin.register(Post)
-class PostAdmin(SummernoteModelAdmin):
+admin.site.register(Post)
 
-    list_display = ('title', 'slug', 'status')
-    search_fields = ['title']
-    list_filter = ('status',)
-    prepopulated_fields = {'slug': ('title',)}
-    summernote_fields = ('content',)
+#class PostAdmin(SummernoteModelAdmin):
+
+#    list_display = ('title', 'slug', 'status')
+#    search_fields = ['title']
+#    list_filter = ('status',)
+#    prepopulated_fields = {'slug': ('title',)}
 
 
 # Register your models here.

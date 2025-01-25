@@ -12,7 +12,7 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "home/index.html"
     paginate_by = 20
-
+    
 def post_detail(request, slug):
     """
     Display an individual :model:`home.Post`.

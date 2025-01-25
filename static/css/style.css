@@ -28,7 +28,7 @@ body {
 }
 
 .main-bg {
-    background-color: #161616;
+    background-color: #0c0c0c;
 }
 
 .card {
@@ -41,6 +41,7 @@ body {
 .image-container {
     position: relative;
     width: 12rem;
+    padding-left: 10px;
 }
 
 .image-flash {
@@ -56,10 +57,21 @@ body {
 }
 
 .row {
-    margin-right: 2rem;
-    margin-left: 2rem
+    margin-right: -10rem;
+    margin-left: -10rem
 }
 
+.content-border {
+    border: 1px solid #ff6600;
+    padding-left: 10px;
+}
+
+h2 {
+    color: #ff6600;
+    font-family: 'Limelight', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
 
 .scale {
     width: 100%;
@@ -72,7 +84,7 @@ body {
 }
 
 .card-content {
-    color: white;
+    color: #818181;
 }
 
 .masthead {
@@ -103,16 +115,6 @@ body {
     z-index: 100;
 }
 
-.post-link {
-    text-decoration: none;
-    color: #445261;
-}
-
-.post-link:hover,
-.page-link {
-    color: #E84610;
-}
-
 .post-title {
     margin-top: 10%;
     margin-left: 5%;
@@ -135,34 +137,6 @@ body {
     color: #23BBBB;
 }
 
-.link {
-    color: #23BBBB;
-    text-decoration: none;
-}
-
-.link:hover,
-.link:active {
-    color: white;
-    text-decoration: underline;
-}
-
-.btn-like {
-    color: #E84610;
-    border: none;
-    background: transparent;
-}
-
-.btn-delete {
-    color: #fff;
-    background: #E84610;
-}
-
-.btn-like:hover,
-.btn-like:active {
-    color: #E84610;
-    background: transparent;
-    border: none;
-}
 
 .faded {
     color: rgb(172, 175, 175);
