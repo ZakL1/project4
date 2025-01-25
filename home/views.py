@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views import generic
 from .models import Post
+from django.shortcuts import get_object_or_404
+from .models import Post, Comment
+from .forms import CommentForm
 
 # Create your views here.
 
@@ -8,20 +11,20 @@ from .models import Post
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "home/index.html"
-    paginate_by = 6
+    paginate_by = 20
 
 def post_detail(request, slug):
     """
-    Display an individual :model:`blog.Post`.
+    Display an individual :model:`home.Post`.
 
     **Context**
 
     ``post``
-        An instance of :model:`blog.Post`.
+        An instance of :model:`home.Post`.
 
     **Template:**
 
-    :template:`blog/post_detail.html`
+    :template:`home/post_detail.html`
     """
 
     queryset = Post.objects.filter(status=1)
@@ -40,4 +43,17 @@ def post_detail(request, slug):
             messages.add_message(
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
+    )
+
+    comment_form = CommentForm()
+
+    return render(
+        request,
+        "home/post_detail.html",
+        {
+            "post": post,
+            "comments": comments,
+            "comment_count": comment_count,
+            "comment_form": comment_form,
+        },
     )

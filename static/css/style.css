@@ -36,8 +36,11 @@ body {
     background-color: transparent;
 }
 
+/* styles for review posts */
+
 .image-container {
     position: relative;
+    width: 12rem;
 }
 
 .image-flash {
@@ -45,8 +48,18 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #188181;
+    color: #ff6600;
+    margin: 4px;
+    text-transform: uppercase;
+    font-family: 'Limelight', serif;
+    background-color: black;
 }
+
+.row {
+    margin-right: 2rem;
+    margin-left: 2rem
+}
+
 
 .scale {
     width: 100%;
@@ -54,9 +67,12 @@ body {
 }
 
 .author {
-    color: white;
     margin: 4px;
     text-transform: uppercase;
+}
+
+.card-content {
+    color: white;
 }
 
 .masthead {
@@ -160,4 +176,8 @@ body {
     color: white;
     border-color: white;
     background-color: white;
+}
+
+hr {
+    color: white;
 }

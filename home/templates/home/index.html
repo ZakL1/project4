@@ -7,31 +7,38 @@
     <div class="row">
 
         <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
+        <div class="col-md-12 mt-3 left">
             <div class="row">
                 {% for post in post_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
+                <div class="col-md-12 mb-4">
+                    <div class="card">
                         <div class="card-body">
-                            <div class="image-container">
-                                {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/default.jpg' %}"
-                                    alt="placeholder image">
-                                {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
-                                {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
+                            <div class="row justify-content-center">
+                                <!-- Image Section -->
+                                <div class="image-container col-md-6">
+                                    {% if "placeholder" in post.featured_image.url %}
+                                    <img class="card-img-top img-fluid" src="{% static 'images/filmreview.jpg' %}"
+                                        alt="placeholder image">
+                                    {% else %}
+                                    <img class="card-img-top img-fluid" src="{{ post.featured_image.url }}"
+                                        alt="{{ post.title }}">
+                                    {% endif %}
+                                    <div class="image-flash">
+                                        <p class="author">Author: {{ post.author }}</p>
+                                    </div>
+                                </div>
+
+                                <!-- Content Section -->
+                                <div class="col-md-6">
+                                    <a href="{% url 'post_detail' post.slug %}" class="post-link">
+                                        <h2 class="card-title">{{ post.title }}</h2>
+                                        <p class="card-content">{{ post.content }}</p>
+                                        <p class="card-text">{{ post.excerpt }}</p>
+                                    </a>
+                                    <hr />
+                                    <p class="card-text text-muted h6">{{ post.created_on }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                                <p class="card-text">{{ post.excerpt }}</p>
-                            </a>
-
-                            <hr />
-                            <p class="card-text text-muted h6">{{ post.created_on}}
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -40,7 +47,6 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
