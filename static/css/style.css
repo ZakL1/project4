@@ -15,6 +15,14 @@ body {
     padding-bottom: 1.5rem;
 }
 
+.nav-link {
+    color: white;
+}
+
+.text-end {
+    color: #818181;
+}
+
 .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
     color: white;
 }

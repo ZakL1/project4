@@ -19,12 +19,19 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
+    upvotes = models.PositiveIntegerField(default=0)  # To track upvotes
+    downvotes = models.PositiveIntegerField(default=0)  # To track downvotes
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         ordering = ["-created_on"]
 
     def __str__(self):
         return f"{self.title} | witten by {self.author}"
+
+        
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')

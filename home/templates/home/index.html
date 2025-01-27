@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+{% load custom_tags %}
 
 <!-- index.html content starts here -->
 <div class="container-fluid">
@@ -27,13 +28,21 @@
                                         <p class="author">Author: {{ post.author }}</p>
                                     </div>
                                 </div>
-
                                 <!-- Content Section -->
-                                <div class="content-border col-md-6">                                   
-                                        <h2 class="card-title">{{ post.title }}</h2>
-                                        <p class="card-content">{{ post.content }}</p>
-                                        <p class="card-text">{{ post.excerpt }}</p>                                                                        
-                                        <p class="card-text text-muted h6">{{ post.created_on }}</p>
+                                <div class="content-border col-md-6">
+                                    <h2 class="card-title">{{ post.title }}</h2>
+                                    <p class="card-text text-muted h6">By {{ post.author }} | Published on
+                                        {{ post.created_on }}</p>
+                                    <p class="card-content">{{ post.content }}</p>
+                                    <p class="card-text">{{ post.excerpt }}</p>
+                                    <p>Upvotes: <span id="upvote-count-{{ post.id }}">{{ post.upvotes }}</span></p>
+                                    <p>Downvotes: <span id="downvote-count-{{ post.id }}">{{ post.downvotes }}</span>
+                                    </p>
+
+                                    <button class="vote-btn" data-post-id="{{ post.id }}" data-vote-type="upvote">👍
+                                        Upvote</button>
+                                    <button class="vote-btn" data-post-id="{{ post.id }}" data-vote-type="downvote">👎
+                                        Downvote</button>
                                 </div>
                             </div>
                         </div>

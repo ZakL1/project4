@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Review
+from .models import Post
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -7,4 +7,3 @@ admin.site.register(Post)
 
 
 # Register your models here.
-admin.site.register(Review)
