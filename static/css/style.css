@@ -133,18 +133,35 @@ h2 {
     color: lightgray;
 }
 
+/* styles for login in, sing out and sign up */
+
 .btn-signup,
 .btn-edit {
-    background-color: #188181;
+    background-color: #ff6600;
     color: #fff;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #23BBBB;
+    color: black;
 }
 
+.sign_out {
+    color: #818181;
+}
+
+.sign_up {
+    color: #818181;
+}
+
+.login {
+    color: #818181;
+}
+
+.signup_container {
+    color:#818181;
+}
 
 .faded {
     color: rgb(172, 175, 175);
