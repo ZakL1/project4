@@ -6,5 +6,6 @@ from django.http import HttpResponse
 
 
 # Create your views here.
-def about(request):
-    return render(request, 'about.html')
+def about_view(request):
+    about = About.objects.prefetch_related('images').first()
+    return render(request, 'about.html', {'about': about})

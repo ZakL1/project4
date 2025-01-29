@@ -157,3 +157,16 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dvajuxx87',
+    'API_KEY': '924456711849321',
+    'API_SECRET': 'YiwtL_NwR2-Kq1vkFDLIvdyeDRc',
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+

@@ -186,3 +186,12 @@ h2 {
 hr {
     color: white;
 }
+
+a.socialbtn {
+    text-decoration: none;
+    color: white;
+}
+
+a.socialbtn:hover {
+    color: #818181;
+}

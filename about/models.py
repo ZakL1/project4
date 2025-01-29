@@ -6,10 +6,13 @@ class About(models.Model):
     title = models.CharField(max_length=200)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
-    featured_image = CloudinaryField(
-        'image',
-        default='placeholder'
-    )
 
     def __str__(self):
         return self.title
+
+class AboutImage(models.Model):
+    about = models.ForeignKey(About, on_delete=models.CASCADE, related_name="images")
+    image = CloudinaryField('image', default='placeholder')
+
+    def __str__(self):
+        return f"Image for {self.about.title}"
