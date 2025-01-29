@@ -27,6 +27,18 @@ body {
     color: white;
 }
 
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+a#homebtn:hover {
+    background-color: #818181;
+}
+
+a#aboutbtn:hover {
+    background-color: #818181;
+}
+
 .light-bg {
     background-color: black;
 }
@@ -169,12 +181,6 @@ h2 {
 
 .approval {
     color: rgb(222, 146, 168);
-}
-
-.navbar-light .navbar-toggler {
-    color: white;
-    border-color: white;
-    background-color: white;
 }
 
 hr {
