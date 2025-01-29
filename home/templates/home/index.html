@@ -35,14 +35,31 @@
                                         {{ post.created_on }}</p>
                                     <p class="card-content">{{ post.content }}</p>
                                     <p class="card-text">{{ post.excerpt }}</p>
-                                    <p>Upvotes: <span id="upvote-count-{{ post.id }}">{{ post.upvotes }}</span></p>
-                                    <p>Downvotes: <span id="downvote-count-{{ post.id }}">{{ post.downvotes }}</span>
-                                    </p>
 
-                                    <button class="vote-btn" data-post-id="{{ post.id }}" data-vote-type="upvote">👍
-                                        Upvote</button>
-                                    <button class="vote-btn" data-post-id="{{ post.id }}" data-vote-type="downvote">👎
-                                        Downvote</button>
+                                    <!-- Voting Section -->
+                                    <div class="voting-section">
+                                        
+                                        <p class="vote-counter">Upvotes:  <span id="upvote-count-{{ post.id }}">{{ post.upvotes }}</span></p>
+                                        <p class="vote-counter">Downvotes:  <span
+                                                id="downvote-count-{{ post.id }}">{{ post.downvotes }}</span></p>
+                                        
+                                        {% if user.is_authenticated %}
+                                        <div class="voting-btn">
+                                            <!-- Upvote Button -->
+                                            <button id="upvote-btn-{{ post.id }}" class="vote-btn"
+                                                data-post-id="{{ post.id }}" data-vote-type="upvote">
+                                                👍 Upvote
+                                            </button>
+                                            <!-- Downvote Button -->
+                                            <button id="downvote-btn-{{ post.id }}" class="vote-btn"
+                                                data-post-id="{{ post.id }}" data-vote-type="downvote">
+                                                👎 Downvote
+                                            </button>
+                                        </div>
+                                        {% else %}
+                                        <p class="text-muted">Log in to vote.</p>
+                                        {% endif %}
+                                    </div>
                                 </div>
                             </div>
                         </div>

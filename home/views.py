@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.views import generic
+from django.contrib import messages
 from .models import Post
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404 
-from .models import Post, Comment
+from .models import Post, Comment, Vote
 from .forms import CommentForm
-from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 
@@ -19,20 +20,42 @@ def index(request):
     posts = Post.objects.all()
     return render(request, 'home/index.html', {'posts': posts})
 
-@login_required
-def vote(request, post_id, vote_type):
-    post = get_object_or_404(Post, id=post_id)
 
-    if vote_type == 'upvote':
-        post.upvotes += 1
-    elif vote_type == 'downvote':
-        post.downvotes += 1
+@require_POST  # Ensure only POST requests are allowed
+def vote_post(request, post_id, vote_type):
+    if not request.user.is_authenticated:
+        return JsonResponse({'success': False, 'error': 'You must be logged in to vote.'}, status=403)
+
+    try:
+        post = Post.objects.get(id=post_id)
+    except Post.DoesNotExist:
+        return JsonResponse({'success': False, 'error': 'Post not found.'}, status=404)
+
+    # Check if the user has already voted
+    existing_vote = Vote.objects.filter(user=request.user, post=post).first()
+
+    if existing_vote:
+        if existing_vote.vote_type == vote_type:
+            # User is trying to vote the same way again, so remove the vote
+            existing_vote.delete()
+            action = 'removed'
+        else:
+            # User is changing their vote
+            existing_vote.vote_type = vote_type
+            existing_vote.save()
+            action = 'changed'
     else:
-        return JsonResponse({'error': 'Invalid vote type'}, status=400)
+        # User is voting for the first time
+        Vote.objects.create(user=request.user, post=post, vote_type=vote_type)
+        action = 'added'
 
-    post.save()
+    # Update the vote counts
+    upvotes = post.total_upvotes()
+    downvotes = post.total_downvotes()
 
     return JsonResponse({
-        'upvotes': post.upvotes,
-        'downvotes': post.downvotes,
+        'success': True,
+        'action': action,
+        'upvotes': upvotes,
+        'downvotes': downvotes,
     })
