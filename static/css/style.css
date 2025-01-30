@@ -1,7 +1,13 @@
+/* main body styles */
+
 body {
     background-color: white;
 }
 
+.main-bg {
+    background-color: #0c0c0c;
+}
+/* navbar styles */
 .name {
     font-family: Limelight, sans-serif;
     font-size: 2.2rem;
@@ -13,10 +19,6 @@ body {
     background-color: black;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-}
-
-.nav-link {
-    color: white;
 }
 
 .text-end {
@@ -31,12 +33,20 @@ body {
     color: white;
 }
 
+.navbar-light .navbar-toggler {
+    color: white;
+}
+
 a#homebtn:hover {
     background-color: #818181;
+    border: solid;
+    border-color: white;
 }
 
 a#aboutbtn:hover {
     background-color: #818181;
+    border: solid;
+    border-color: white;
 }
 
 .light-bg {
@@ -47,16 +57,12 @@ a#aboutbtn:hover {
     background-color: black;
 }
 
-.main-bg {
-    background-color: #0c0c0c;
-}
-
 .card {
     border: none;
     background-color: transparent;
 }
 
-/* styles for review posts */
+/* styles for review posts content */
 
 .image-container {
     position: relative;
@@ -84,6 +90,7 @@ a#aboutbtn:hover {
 .content-border {
     border: 1px solid #ff6600;
     padding-left: 10px;
+    padding-top: 5px;
 }
 
 p.card-content {
@@ -97,6 +104,7 @@ h2 {
     font-weight: 700;
 }
 
+/* review buttons styles */
 .vote-btn {
     background-color: #ff6600;
     border: solid;
@@ -129,6 +137,7 @@ p.vote-counter {
     justify-content: flex-end;
 }
 
+/* review images styles */
 .masthead {
     margin-top: 10px;
     overflow: hidden;
@@ -168,7 +177,6 @@ p.vote-counter {
 }
 
 /* styles for login in, sing out and sign up */
-
 .btn-signup,
 .btn-edit {
     background-color: #ff6600;
@@ -189,6 +197,19 @@ p.vote-counter {
     color: #818181;
 }
 
+.nav-link {
+    color:white;
+    text-decoration: none;
+}
+
+li.nav-item:hover {
+    background-color: #818181;
+    border: solid;
+    border-color: white;
+    text-decoration: none;
+    color: white;
+}
+
 .login {
     color: #818181;
 }
@@ -201,6 +222,21 @@ p.vote-counter {
     color: rgb(172, 175, 175);
 }
 
+/* Paginate button styles */
+a.page-link {
+    background-color: #0c0c0c;
+    text-decoration: none;
+    color: white;
+    border-color: #0c0c0c;
+}
+
+a.page-link:hover {
+    background-color: #818181;
+    border: solid;
+    color: white;
+}
+
+/* Footer button styles */
 .approval {
     color: rgb(222, 146, 168);
 }
@@ -216,4 +252,22 @@ a.socialbtn {
 
 a.socialbtn:hover {
     color: #818181;
+}
+
+/* styles for about page */
+.about-info {
+    text-align: center;
+}
+
+.about-title {
+    color: #ff6600;
+    font-family: 'Limelight', serif;
+    font-size: 3rem;
+}
+
+.about-p {
+    color: #818181;
+    font-size: 1.3rem;
+    margin-left: 8.5rem;
+    margin-right: 8.5rem;
 }

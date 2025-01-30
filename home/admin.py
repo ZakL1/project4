@@ -3,7 +3,6 @@ from .models import Post
 from django_summernote.admin import SummernoteModelAdmin
 
 
-admin.site.register(Post)
-
 
 # Register your models here.
+admin.site.register(Post)

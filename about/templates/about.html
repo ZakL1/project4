@@ -4,23 +4,34 @@
 
 {% block content %}
 <!-- about.html content starts here -->
+<div class="about-info col-md-12 mt-3">
+  <h1 class="about-title">Meet the film fanatics</h1>
+  <p class="about-p">We are a passionate team of film enthusiasts dedicated to reviewing the latest and greatest in
+    cinema. Our talented content creators bring diverse perspectives and in-depth analyses to help you discover
+    must-watch movies. Dive into our reviews and join us in celebrating the magic of film.</p>
+</div>
+<!-- About text content -->
 <div class="container mt-5">
-    <div class="card shadow-lg">
-        <div class="content-border">
-            <h2 class="card-title">{{ about.title }}</h2>
-            <p class="text-muted">Last updated on {{ about.updated_on|date:"F d, Y" }}</p>
-            <p class="card-content">{{ about.content }}</p>
-        </div>
-    </div>
-
-    {% if about.images.all %}
-    <div>
+  <div class="card shadow-lg col-md-12 mb-4">
+    {% for about in about %}
+    <div class="row content-border mb-5">
+      <div class="col-md-6">
+        <h2 class="card-title">{{ about.title }}</h2>
+        <p class="text-muted">Last updated on {{ about.updated_on|date:"F d, Y" }}</p>
+        <p class="card-content">{{ about.content }}</p>
+      </div>
+      <!-- About images -->
+      {% if about.images.all %}
+      <div class="col-md-6 d-flex">
         {% for image in about.images.all %}
-            <img src="{{ image.image.url }}" alt="About Image" class="img-fluid">
+        <div class="image-container me-3">
+          <img src="{{ image.featured_image.url }}" alt="About Image" class="img-fluid">
+        </div>
         {% endfor %}
+      </div>
+      {% endif %}
     </div>
-{% endif %}
-
-
-<!-- index.html content ends here -->
-{% endblock %}
+    {% endfor %}
+  </div>
+  <!-- about.html content ends here -->
+  {% endblock %}

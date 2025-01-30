@@ -4,8 +4,7 @@ from django.contrib import messages
 from .models import Post
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404 
-from .models import Post, Comment, Vote
-from .forms import CommentForm
+from .models import Post, Vote
 from django.views.decorators.http import require_POST
 
 # Create your views here.
@@ -14,7 +13,7 @@ from django.views.decorators.http import require_POST
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "home/index.html"
-    paginate_by = 20
+    paginate_by = 5
     
 def index(request):
     posts = Post.objects.all()

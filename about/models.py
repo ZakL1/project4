@@ -12,7 +12,7 @@ class About(models.Model):
 
 class AboutImage(models.Model):
     about = models.ForeignKey(About, on_delete=models.CASCADE, related_name="images")
-    image = CloudinaryField('image', default='placeholder')
+    featured_image = CloudinaryField('image', default='placeholder')
 
     def __str__(self):
         return f"Image for {self.about.title}"
