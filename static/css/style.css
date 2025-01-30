@@ -97,6 +97,16 @@ h2 {
     font-weight: 700;
 }
 
+.vote-btn {
+    background-color: #ff6600;
+    border: solid;
+    border-color: black;
+}
+
+.vote-btn:hover {
+    background-color: white;
+}
+
 .scale {
     width: 100%;
     height: auto;

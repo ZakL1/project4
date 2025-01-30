@@ -46,14 +46,12 @@
                                         {% if user.is_authenticated %}
                                         <div class="voting-btn">
                                             <!-- Upvote Button -->
-                                            <button id="upvote-btn-{{ post.id }}" class="vote-btn"
+                                            <button id="upvote-btn-{{ post.id }}" class="vote-btn fa-solid fa-arrow-up"
                                                 data-post-id="{{ post.id }}" data-vote-type="upvote">
-                                                👍 Upvote
                                             </button>
                                             <!-- Downvote Button -->
-                                            <button id="downvote-btn-{{ post.id }}" class="vote-btn"
+                                            <button id="downvote-btn-{{ post.id }}" class="vote-btn fa-solid fa-arrow-down"
                                                 data-post-id="{{ post.id }}" data-vote-type="downvote">
-                                                👎 Downvote
                                             </button>
                                         </div>
                                         {% else %}
