@@ -1,0 +1,273 @@
+/* main body styles */
+
+body {
+    background-color: white;
+}
+
+.main-bg {
+    background-color: #0c0c0c;
+}
+/* navbar styles */
+.name {
+    font-family: Limelight, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #ff6600;
+}
+
+.navbar {
+    background-color: black;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.text-end {
+    color: #818181;
+}
+
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-light .navbar-toggler {
+    color: white;
+}
+
+a#homebtn:hover {
+    background-color: #818181;
+    border: solid;
+    border-color: white;
+}
+
+a#aboutbtn:hover {
+    background-color: #818181;
+    border: solid;
+    border-color: white;
+}
+
+.light-bg {
+    background-color: black;
+}
+
+.dark-bg {
+    background-color: black;
+}
+
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+/* styles for review posts content */
+
+.image-container {
+    position: relative;
+    width: 12rem;
+    padding-left: 10px;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    color: #ff6600;
+    margin: 4px;
+    text-transform: uppercase;
+    font-family: 'Limelight', serif;
+    background-color: black;
+}
+
+.row {
+    margin-right: -10rem;
+    margin-left: -10rem
+}
+
+.content-border {
+    border: 1px solid #ff6600;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+p.card-content {
+    color: #818181;
+}
+
+h2 {
+    color: #ff6600;
+    font-family: 'Limelight', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* review buttons styles */
+.vote-btn {
+    background-color: #ff6600;
+    border: solid;
+    border-color: black;
+}
+
+.vote-btn:hover {
+    background-color: white;
+}
+
+.scale {
+    width: 100%;
+    height: auto;
+}
+
+.author {
+    margin: 4px;
+    text-transform: uppercase;
+}
+
+div.voting-btn {
+    display: flex;
+    flex-direction: row-reverse
+}
+
+p.vote-counter {
+    display: flex;
+    color: white;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+/* review images styles */
+.masthead {
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #445261;
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
+}
+
+.post-title {
+    margin-top: 10%;
+    margin-left: 5%;
+}
+
+.post-subtitle {
+    margin-left: 5%;
+    color: lightgray;
+}
+
+/* styles for login in, sing out and sign up */
+.btn-signup,
+.btn-edit {
+    background-color: #ff6600;
+    color: #fff;
+}
+
+.btn-signup:hover,
+.btn-signup:active {
+    background-color: #fff;
+    color: black;
+}
+
+.sign_out {
+    color: #818181;
+}
+
+.sign_up {
+    color: #818181;
+}
+
+.nav-link {
+    color:white;
+    text-decoration: none;
+}
+
+li.nav-item:hover {
+    background-color: #818181;
+    border: solid;
+    border-color: white;
+    text-decoration: none;
+    color: white;
+}
+
+.login {
+    color: #818181;
+}
+
+.signup_container {
+    color:#818181;
+}
+
+.faded {
+    color: rgb(172, 175, 175);
+}
+
+/* Paginate button styles */
+a.page-link {
+    background-color: #0c0c0c;
+    text-decoration: none;
+    color: white;
+    border-color: #0c0c0c;
+}
+
+a.page-link:hover {
+    background-color: #818181;
+    border: solid;
+    color: white;
+}
+
+/* Footer button styles */
+.approval {
+    color: rgb(222, 146, 168);
+}
+
+hr {
+    color: white;
+}
+
+a.socialbtn {
+    text-decoration: none;
+    color: white;
+}
+
+a.socialbtn:hover {
+    color: #818181;
+}
+
+/* styles for about page */
+.about-info {
+    text-align: center;
+}
+
+.about-title {
+    color: #ff6600;
+    font-family: 'Limelight', serif;
+    font-size: 3rem;
+}
+
+.about-p {
+    color: #818181;
+    font-size: 1.3rem;
+    margin-left: 8.5rem;
+    margin-right: 8.5rem;
+}
