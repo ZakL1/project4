@@ -4,28 +4,30 @@
 
 {% block content %}
 <!-- about.html content starts here -->
-<div class="about-info col-md-12 mt-3">
-  <h1 class="about-title">Meet the film fanatics</h1>
-  <p class="about-p">We are a passionate team of film enthusiasts dedicated to reviewing the latest and greatest in
-    cinema. Our talented content creators bring diverse perspectives and in-depth analyses to help you discover
-    must-watch movies. Dive into our reviews and join us in celebrating the magic of film.</p>
+<!-- About Section -->
+<div class="about-info col-12 mt-3">
+  <h1 class="about-title text-center">Meet the film fanatics</h1>
+  <p class="about-p text-center">We are a passionate team of film enthusiasts dedicated to reviewing the latest and greatest in cinema. Our talented content creators bring diverse perspectives and in-depth analyses to help you discover must-watch movies. Dive into our reviews and join us in celebrating the magic of film.</p>
 </div>
-<!-- About text content -->
-<div class="container mt-5">
-  <div class="card shadow-lg col-md-12 mb-4">
+
+<!-- About Text Content -->
+<div class="container mt-5 d-flex">
+  <div class="card shadow-lg col-12 mb-4" style="align-items: center;">
     {% for about in about %}
-    <div class="row content-border mb-5">
-      <div class="col-md-6">
+    <div class="row content-border mb-5 p-3" style="max-width: 100%;">
+      <!-- Text Content -->
+      <div class="col-lg-6 col-md-12 order-lg-1 order-md-1 order-2">
         <h2 class="card-title">{{ about.title }}</h2>
         <p class="text-muted">Last updated on {{ about.updated_on|date:"F d, Y" }}</p>
         <p class="card-content">{{ about.content }}</p>
       </div>
-      <!-- About images -->
+
+      <!-- About Images -->
       {% if about.images.all %}
-      <div class="col-md-6 d-flex">
+      <div class="col-lg-6 col-md-12 order-lg-2 order-md-2 order-1 d-flex flex-wrap justify-content-center">
         {% for image in about.images.all %}
-        <div class="image-container me-3">
-          <img src="{{ image.featured_image.url }}" alt="About Image" class="img-fluid">
+        <div class="image-container me-3 mb-3">
+          <img src="{{ image.featured_image.url }}" alt="About Image" class="img-fluid rounded">
         </div>
         {% endfor %}
       </div>
@@ -33,5 +35,6 @@
     </div>
     {% endfor %}
   </div>
+</div>
   <!-- about.html content ends here -->
   {% endblock %}

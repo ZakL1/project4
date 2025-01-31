@@ -2,10 +2,17 @@
 
 body {
     background-color: white;
+    margin: 0 auto;
 }
 
 .main-bg {
     background-color: #0c0c0c;
+}
+
+html{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* navbar styles */
 .name {
@@ -82,15 +89,15 @@ a#aboutbtn:hover {
     background-color: black;
 }
 
-.row {
-    margin-right: -10rem;
-    margin-left: -10rem
+div.row {
+    margin-right: 0px;
+    margin-left: 0px;
 }
 
 .content-border {
     border: 1px solid #ff6600;
-    padding-left: 10px;
-    padding-top: 5px;
+    padding: 15px;
+    margin: 10px 0;
 }
 
 p.card-content {
