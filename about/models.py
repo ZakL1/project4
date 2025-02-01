@@ -2,6 +2,8 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
+
+
 class About(models.Model):
     title = models.CharField(max_length=200)
     updated_on = models.DateTimeField(auto_now=True)
@@ -10,8 +12,10 @@ class About(models.Model):
     def __str__(self):
         return self.title
 
+
 class AboutImage(models.Model):
-    about = models.ForeignKey(About, on_delete=models.CASCADE, related_name="images")
+    about = models.ForeignKey(
+        About, on_delete=models.CASCADE, related_name="images")
     featured_image = CloudinaryField('image', default='placeholder')
 
     def __str__(self):

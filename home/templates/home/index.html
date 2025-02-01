@@ -6,84 +6,85 @@
 <!-- index.html content starts here -->
 <div class="row">
 
-        <!-- Review Entries Column -->
-        <div class="col-md-12 mt-3 left">
-            <div class="row">
-                {% for post in post_list %}
-                <div class="col-md-12 mb-4" style="align-items: center;">
-                    <div class="card"  style="max-width: 100%;">
-                        <div class="card-body"  style="max-width: 100%;">
-                            <div class="row justify-content-center">
-                                <!-- Image Section -->
-                                <div class="image-container col-md-6">
-                                    {% if "placeholder" in post.featured_image.url %}
-                                    <img class="card-img-top img-fluid" src="{% static 'images/filmreview.jpg' %}"
-                                        alt="placeholder image">
-                                    {% else %}
-                                    <img class="card-img-top img-fluid" src="{{ post.featured_image.url }}"
-                                        alt="{{ post.title }}">
-                                    {% endif %}
-                                    <div class="image-flash">
-                                        <p class="author">Author: {{ post.author }}</p>
-                                    </div>
+    <!-- Review Entries Column -->
+    <div class="col-md-12 mt-3 left">
+        <div class="row">
+            {% for post in post_list %}
+            <div class="col-md-12 mb-4" style="align-items: center;">
+                <div class="card" style="max-width: 100%;">
+                    <div class="card-body" style="max-width: 100%;">
+                        <div class="row justify-content-center">
+                            <!-- Image Section -->
+                            <div class="image-container col-md-6">
+                                {% if "placeholder" in post.featured_image.url %}
+                                <img class="card-img-top img-fluid" src="{% static 'images/filmreview.jpg' %}"
+                                    alt="placeholder image">
+                                {% else %}
+                                <img class="card-img-top img-fluid" src="{{ post.featured_image.url }}"
+                                    alt="{{ post.title }}">
+                                {% endif %}
+                                <div class="image-flash">
+                                    <p class="author">Author: {{ post.author }}</p>
                                 </div>
-                                <!-- Content Section -->
-                                <div class="content-border col-md-6">
-                                    <h2 class="card-title">{{ post.title }}</h2>
-                                    <p class="card-text text-muted h6">By {{ post.author }} | Published on
-                                        {{ post.created_on }}</p>
-                                    <p class="card-content">{{ post.content }}</p>
-                                    <p class="card-text">{{ post.excerpt }}</p>
+                            </div>
+                            <!-- Content Section -->
+                            <div class="content-border col-md-6">
+                                <h2 class="card-title">{{ post.title }}</h2>
+                                <p class="card-text text-muted h6">By {{ post.author }} | Published on
+                                    {{ post.created_on }}</p>
+                                <p class="card-content">{{ post.content }}</p>
+                                <p class="card-text">{{ post.excerpt }}</p>
 
-                                    <!-- Voting Section -->
-                                    <div class="voting-section">
-                                        
-                                        <p class="vote-counter">Upvotes:  <span id="upvote-count-{{ post.id }}">{{ post.upvotes }}</span></p>
-                                        <p class="vote-counter">Downvotes:  <span
-                                                id="downvote-count-{{ post.id }}">{{ post.downvotes }}</span></p>
-                                        
-                                        {% if user.is_authenticated %}
-                                        <div class="voting-btn">
-                                            <!-- Upvote Button -->
-                                            <button id="upvote-btn-{{ post.id }}" class="vote-btn fa-solid fa-arrow-up"
-                                                data-post-id="{{ post.id }}" data-vote-type="upvote">
-                                            </button>
-                                            <!-- Downvote Button -->
-                                            <button id="downvote-btn-{{ post.id }}" class="vote-btn fa-solid fa-arrow-down"
-                                                data-post-id="{{ post.id }}" data-vote-type="downvote">
-                                            </button>
-                                        </div>
-                                        {% else %}
-                                        <p class="text-muted">Log in to vote.</p>
-                                        {% endif %}
+                                <!-- Voting Section -->
+                                <div class="voting-section">
+
+                                    <p class="vote-counter">Upvotes: <span
+                                            id="upvote-count-{{ post.id }}">{{ post.upvotes }}</span></p>
+                                    <p class="vote-counter">Downvotes: <span
+                                            id="downvote-count-{{ post.id }}">{{ post.downvotes }}</span></p>
+
+                                    {% if user.is_authenticated %}
+                                    <div class="voting-btn">
+                                        <!-- Upvote Button -->
+                                        <button id="upvote-btn-{{ post.id }}" class="vote-btn fa-solid fa-arrow-up"
+                                            data-post-id="{{ post.id }}" data-vote-type="upvote">
+                                        </button>
+                                        <!-- Downvote Button -->
+                                        <button id="downvote-btn-{{ post.id }}" class="vote-btn fa-solid fa-arrow-down"
+                                            data-post-id="{{ post.id }}" data-vote-type="downvote">
+                                        </button>
                                     </div>
+                                    {% else %}
+                                    <p class="text-muted">Log in to vote.</p>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
             </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
-            </div>
+            {% if forloop.counter|divisibleby:3 %}
+        </div>
+        <div class="row">
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
-    <!-- Pagination -->
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
 </div>
+<!-- Pagination -->
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+
 
 <!-- index.html content ends here -->
 {% endblock %}

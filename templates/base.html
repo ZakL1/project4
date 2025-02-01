@@ -10,7 +10,8 @@
 
 <head>
     <title>CineReviews</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/jpeg" href="{% static 'images/favicon.jpg' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token }}">
 
     <!-- Google Fonts CSS -->
@@ -34,41 +35,42 @@
 
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<body class="d-flex flex-column h-100 main-bg" style="width: 100%;">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-black">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}"><span class="name">CineReviews</span></a>
-            <button class="navbar-toggler fa-solid fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler fa-solid fa-bars" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" id="homebtn" aria-current="page"
-                            href="{% url 'home' %}">Home</a>
+                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" id="homebtn"
+                            aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == about_url %}active{% endif %}" id="aboutbtn" aria-current="page"
-                            href="{% url 'about' %}">About</a>
+                        <a class="nav-link {% if request.path == about_url %}active{% endif %}" id="aboutbtn"
+                            aria-current="page" href="{% url 'about' %}">About</a>
+                    </li>                
+                {% if user.is_authenticated %}                
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_logout' %}">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_login' %}">Login</a>
                     </li>
                 </ul>
-                {% if user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
-                        href="{% url 'account_logout' %}">Logout</a>
-                </li>
-                {% else %}
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-                        href="{% url 'account_signup' %}">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
-                        href="{% url 'account_login' %}">Login</a>
-                </li>
                 {% endif %}
             </div>
         </div>
@@ -107,8 +109,9 @@
             Copyright 2023 Zak
             {% endblock copyright %}
         </p>
-        <p class="m-0 text-center text-white">Follow us: 
-            <a class="fab fa-facebook-square ms-3 socialbtn" href="https://en-gb.facebook.com/login/web/" target="_blank"></a>
+        <p class="m-0 text-center text-white">Follow us:
+            <a class="fab fa-facebook-square ms-3 socialbtn" href="https://en-gb.facebook.com/login/web/"
+                target="_blank"></a>
             <a class="fab fa-instagram-square ms-3 socialbtn" href="https://www.instagram.com/" target="_blank"></a>
             <a class="fab fa-youtube-square ms-3 socialbtn" href="https://www.youtube.com/" target="_blank"></a>
         </p>

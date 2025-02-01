@@ -3,7 +3,7 @@ from django.views import generic
 from django.contrib import messages
 from .models import Post
 from django.http import JsonResponse
-from django.shortcuts import get_object_or_404 
+from django.shortcuts import get_object_or_404
 from .models import Post, Vote
 from django.views.decorators.http import require_POST
 
@@ -14,7 +14,8 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
     template_name = "home/index.html"
     paginate_by = 5
-    
+
+
 def index(request):
     posts = Post.objects.all()
     return render(request, 'home/index.html', {'posts': posts})
@@ -23,12 +24,15 @@ def index(request):
 @require_POST  # Ensure only POST requests are allowed
 def vote_post(request, post_id, vote_type):
     if not request.user.is_authenticated:
-        return JsonResponse({'success': False, 'error': 'You must be logged in to vote.'}, status=403)
+        return JsonResponse(
+            {'success': False, 'error':
+                'You must be logged in to vote.'}, status=403)
 
     try:
         post = Post.objects.get(id=post_id)
     except Post.DoesNotExist:
-        return JsonResponse({'success': False, 'error': 'Post not found.'}, status=404)
+        return JsonResponse(
+            {'success': False, 'error': 'Post not found.'}, status=404)
 
     # Check if the user has already voted
     existing_vote = Vote.objects.filter(user=request.user, post=post).first()
